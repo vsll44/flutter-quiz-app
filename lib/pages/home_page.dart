@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/quiz_model.dart';
 import '../services/quiz_data_loader.dart';
 import 'quiz_page.dart'; // Участник 2 сделает эту страницу
-
+//home page.dart
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
