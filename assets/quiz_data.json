@@ -1,0 +1,184 @@
+{
+  "quizzes": [
+    {
+      "title": "General Knowledge",
+      "description": "Test your general knowledge",
+      "questions": [
+        {
+          "question": "What is the capital of France?",
+          "imageUrl": null,
+          "options": ["Berlin", "Paris", "Madrid"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which planet is known as the Red Planet?",
+          "imageUrl": null,
+          "options": ["Earth", "Mars", "Jupiter"],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is the largest ocean on Earth?",
+          "imageUrl": null,
+          "options": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean"],
+          "correctIndex": 2
+        },
+        {
+          "question": "Who wrote 'Romeo and Juliet'?",
+          "imageUrl": null,
+          "options": ["Charles Dickens", "William Shakespeare", "Mark Twain"],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is the chemical symbol for gold?",
+          "imageUrl": null,
+          "options": ["Au", "Ag", "Pb"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "title": "Science",
+      "description": "Basic science quiz",
+      "questions": [
+        {
+          "question": "What is H2O?",
+          "imageUrl": null,
+          "options": ["Oxygen", "Water", "Hydrogen"],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is the speed of light?",
+          "imageUrl": null,
+          "options": ["300,000 km/s", "150,000 km/s", "1,000 km/s"],
+          "correctIndex": 0
+        },
+        {
+          "question": "What is the chemical formula for table salt?",
+          "imageUrl": null,
+          "options": ["NaCl", "KCl", "CaCl2"],
+          "correctIndex": 0
+        },
+        {
+          "question": "What gas do plants absorb from the atmosphere?",
+          "imageUrl": null,
+          "options": ["Oxygen", "Carbon Dioxide", "Nitrogen"],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is the powerhouse of the cell?",
+          "imageUrl": null,
+          "options": ["Nucleus", "Mitochondria", "Ribosome"],
+          "correctIndex": 1
+        }
+      ]
+    },
+    {
+      "title": "History",
+      "description": "Test your knowledge of history",
+      "questions": [
+        {
+          "question": "Who was the first president of the United States?",
+          "imageUrl": null,
+          "options": ["George Washington", "Thomas Jefferson", "Abraham Lincoln"],
+          "correctIndex": 0
+        },
+        {
+          "question": "In which year did World War II end?",
+          "imageUrl": null,
+          "options": ["1945", "1944", "1946"],
+          "correctIndex": 0
+        },
+        {
+          "question": "Who discovered America?",
+          "imageUrl": null,
+          "options": ["Christopher Columbus", "Ferdinand Magellan", "Marco Polo"],
+          "correctIndex": 0
+        },
+        {
+          "question": "What was the name of the ship that sank in 1912?",
+          "imageUrl": null,
+          "options": ["Titanic", "Lusitania", "Britannic"],
+          "correctIndex": 0
+        },
+        {
+          "question": "Who was known as the Iron Lady?",
+          "imageUrl": null,
+          "options": ["Margaret Thatcher", "Angela Merkel", "Indira Gandhi"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "title": "Geography",
+      "description": "Test your knowledge of geography",
+      "questions": [
+        {
+          "question": "What is the largest continent?",
+          "imageUrl": null,
+          "options": ["Africa", "Asia", "North America"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which country has the largest population?",
+          "imageUrl": null,
+          "options": ["India", "China", "United States"],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is the capital of Japan?",
+          "imageUrl": null,
+          "options": ["Tokyo", "Seoul", "Beijing"],
+          "correctIndex": 0
+        },
+        {
+          "question": "What is the longest river in the world?",
+          "imageUrl": null,
+          "options": ["Amazon River", "Nile River", "Yangtze River"],
+          "correctIndex": 1
+        },
+        {
+          "question": "Which desert is the largest in the world?",
+          "imageUrl": null,
+          "options": ["Sahara", "Arabian", "Gobi"],
+          "correctIndex": 0
+        }
+      ]
+    },
+    {
+      "title": "Mathematics",
+      "description": "Test your math skills",
+      "questions": [
+        {
+          "question": "What is the square root of 16?",
+          "imageUrl": null,
+          "options": ["2", "4", "8"],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is 5 + 7?",
+          "imageUrl": null,
+          "options": ["10", "12", "14"],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is the value of pi?",
+          "imageUrl": null,
+          "options": ["3.14", "3.16", "3.18"],
+          "correctIndex": 0
+        },
+        {
+          "question": "What is 9 * 9?",
+          "imageUrl": null,
+          "options": ["72", "81", "90"],
+          "correctIndex": 1
+        },
+        {
+          "question": "What is the derivative of x^2?",
+          "imageUrl": null,
+          "options": ["2x", "x^2", "x"],
+          "correctIndex": 0
+        }
+      ]
+    }
+  ]
+}

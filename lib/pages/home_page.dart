@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../services/quiz_data_loader.dart';
+import '../pages/quiz_page.dart';
 import '../models/quiz_model.dart';
-import 'quiz_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        QuizPage(quiz: quiz, themeColor: color),
+                                        QuizPage(quiz: quiz, themeColor: color, gradientColors: [],),
                                   ),
                                 );
                               },
