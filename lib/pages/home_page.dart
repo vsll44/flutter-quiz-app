@@ -1,8 +1,8 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 import '../services/quiz_data_loader.dart';
+import '../pages/quiz_page.dart';
 import '../models/quiz_model.dart';
-import 'quiz_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -22,14 +22,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('QUIZMASTER')),
-        backgroundColor: Colors.deepPurple,
+        backgroundColor: const Color.fromARGB(255, 176, 77, 77),
       ),
       body: Column(
         children: [
           const Padding(
             padding: EdgeInsets.all(12.0),
             child: Text(
-              'Xoş gəlmisiniz!',
+              'Let the quiz begin! Show us what you’ve got!',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
               textAlign: TextAlign.center,
             ),
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
                     final color = getRandomColor();
 
                     return Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         color: color,
@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
                                   fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
                           const SizedBox(height: 8),
                           Text(
-                            'Suallar: ${quiz.questions.length}',
+                            'Questions: ${quiz.questions.length}',
                             style: const TextStyle(color: Colors.white),
                           ),
                           const SizedBox(height: 8),
@@ -81,7 +81,7 @@ class HomePage extends StatelessWidget {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) =>
-                                        QuizPage(quiz: quiz, themeColor: color),
+                                        QuizPage(quiz: quiz, themeColor: color, gradientColors: [],),
                                   ),
                                 );
                               },
