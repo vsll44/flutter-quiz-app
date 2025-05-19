@@ -8,7 +8,12 @@ class QuizPage extends StatefulWidget {
   final Quiz quiz;
   final List<Color> gradientColors;
 
-  const QuizPage({super.key, required this.quiz, required this.gradientColors, required Color themeColor});
+  const QuizPage({
+    super.key,
+    required this.quiz,
+    required this.gradientColors,
+    required Color themeColor,
+  });
 
   @override
   State<QuizPage> createState() => _QuizPageState();
@@ -29,7 +34,7 @@ class _QuizPageState extends State<QuizPage> {
     super.initState();
     questions = List.from(widget.quiz.questions)..shuffle();
     startTimer();
-    playTicking(0.6); // slow ticking to start
+    playTicking(0.6);
   }
 
   @override
@@ -42,7 +47,7 @@ class _QuizPageState extends State<QuizPage> {
   void playTicking(double rate) async {
     await player.stop();
     await player.setPlaybackRate(rate);
-    await player.play(AssetSource('sounds/tick.mp3'), volume: 0.6);
+    await player.play(AssetSource('sounds/tick.mp3'), volume: 0.5);
   }
 
   void startTimer() {
@@ -77,7 +82,8 @@ class _QuizPageState extends State<QuizPage> {
 
   void nextQuestion() {
     timer?.cancel();
-    if (selectedIndex != null && selectedIndex == questions[currentIndex].correctIndex) {
+    if (selectedIndex != null &&
+        selectedIndex == questions[currentIndex].correctIndex) {
       score++;
     }
     if (currentIndex < questions.length - 1) {
@@ -92,13 +98,15 @@ class _QuizPageState extends State<QuizPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (_) => ResultPage(
-            score: score,
-            total: questions.length,
-            quizTitle: widget.quiz.title,
-            quiz: widget.quiz,
-            userAnswers: [], correct: 1,
-          ),
+          builder:
+              (_) => ResultPage(
+                score: score,
+                total: questions.length,
+                quizTitle: widget.quiz.title,
+                quiz: widget.quiz,
+                userAnswers: [],
+                correct: 1,
+              ),
         ),
       );
     }
@@ -125,7 +133,11 @@ class _QuizPageState extends State<QuizPage> {
             centerTitle: true,
             title: Text(
               widget.quiz.title,
-              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
@@ -134,10 +146,23 @@ class _QuizPageState extends State<QuizPage> {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Text(
+                ' ${widget.quiz.title}',
+                style: const TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(221, 139, 12, 12),
+                ),
+              ),
+            ),
+
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: timeLeft <= 3 ? Colors.red.shade100 : Colors.blue.shade50,
+                color:
+                    timeLeft <= 3 ? Colors.red.shade100 : Colors.blue.shade50,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Row(
@@ -159,7 +184,9 @@ class _QuizPageState extends State<QuizPage> {
             const SizedBox(height: 20),
             Card(
               elevation: 3,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
@@ -173,7 +200,10 @@ class _QuizPageState extends State<QuizPage> {
                     const SizedBox(height: 12),
                     Text(
                       question.question,
-                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ],
                 ),
@@ -200,22 +230,29 @@ class _QuizPageState extends State<QuizPage> {
                   }
 
                   return InkWell(
-                    onTap: showCorrect
-                        ? null
-                        : () {
-                            setState(() {
-                              selectedIndex = i;
-                              showCorrect = true;
-                              timer?.cancel();
-                            });
-                            WidgetsBinding.instance.addPostFrameCallback((_) {
-                              Future.microtask(() {
-                                Future.delayed(const Duration(seconds: 2), nextQuestion);
+                    onTap:
+                        showCorrect
+                            ? null
+                            : () {
+                              setState(() {
+                                selectedIndex = i;
+                                showCorrect = true;
+                                timer?.cancel();
                               });
-                            });
-                          },
+                              WidgetsBinding.instance.addPostFrameCallback((_) {
+                                Future.microtask(() {
+                                  Future.delayed(
+                                    const Duration(seconds: 2),
+                                    nextQuestion,
+                                  );
+                                });
+                              });
+                            },
                     child: Container(
-                      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 16,
+                        horizontal: 20,
+                      ),
                       decoration: BoxDecoration(
                         color: color,
                         borderRadius: BorderRadius.circular(12),
