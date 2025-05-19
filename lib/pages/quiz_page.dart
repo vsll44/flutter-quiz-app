@@ -47,7 +47,7 @@ class _QuizPageState extends State<QuizPage> {
   void playTicking(double rate) async {
     await player.stop();
     await player.setPlaybackRate(rate);
-    await player.play(AssetSource('sounds/tick.mp3'), volume: 0.5);
+    await player.play(AssetSource('sounds/tick.mp3'), volume: 0.6);
   }
 
   void startTimer() {
