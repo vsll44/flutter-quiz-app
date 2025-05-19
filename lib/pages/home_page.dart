@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           const Padding(
-            padding: EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(11.0),
             child: Text(
               'Xoş gəlmisiniz!',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
                     final color = getRandomColor();
 
                     return Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 8),
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         color: color,
