@@ -47,7 +47,7 @@ class _QuizPageState extends State<QuizPage> {
   void playTicking(double rate) async {
     await player.stop();
     await player.setPlaybackRate(rate);
-    await player.play(AssetSource('sounds/tick.mp3'), volume: 0.6);
+    await player.play(AssetSource('sounds/tick.mp3'), volume: 0.5);
   }
 
   void startTimer() {
@@ -149,11 +149,11 @@ class _QuizPageState extends State<QuizPage> {
             Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: Text(
-                'Kateqoriya: ${widget.quiz.title}',
+                ' ${widget.quiz.title}',
                 style: const TextStyle(
-                  fontSize: 18,
+                  fontSize: 25,
                   fontWeight: FontWeight.w500,
-                  color: Colors.black87,
+                  color: Color.fromARGB(221, 139, 12, 12),
                 ),
               ),
             ),
