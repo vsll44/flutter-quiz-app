@@ -20,9 +20,27 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFFF6F6F6),
       appBar: AppBar(
-        title: const Center(child: Text('QUIZMASTER')),
-        backgroundColor: const Color.fromARGB(255, 176, 77, 77),
+        title: const Text(
+          'QUIZMASTER',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+            letterSpacing: 1.2,
+          ),
+        ),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF8E2DE2), Color(0xFF4A00E0)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
+        elevation: 4,
       ),
       body: Column(
         children: [
@@ -41,9 +59,9 @@ class HomePage extends StatelessWidget {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasError) {
-                  return Center(child: Text('Xəta baş verdi: ${snapshot.error}'));
+                  return Center(child: Text('Error 404: ${snapshot.error}'));
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return const Center(child: Text('Heç bir quiz tapılmadı.'));
+                  return const Center(child: Text('No quizzes found.'));
                 }
 
                 final quizzes = snapshot.data!;
@@ -54,41 +72,69 @@ class HomePage extends StatelessWidget {
                     final color = getRandomColor();
 
                     return Container(
-                      margin: const EdgeInsets.symmetric(horizontal: 32, vertical: 8),
-                      padding: const EdgeInsets.all(16),
+                      margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                       decoration: BoxDecoration(
-                        color: color,
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(quiz.title,
-                              style: const TextStyle(
-                                  fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white)),
-                          const SizedBox(height: 8),
-                          Text(
-                            'Questions: ${quiz.questions.length}',
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                          const SizedBox(height: 8),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        QuizPage(quiz: quiz, themeColor: color, gradientColors: [],),
-                                  ),
-                                );
-                              },
-                              child: const Text('Start'),
-                            ),
+                        borderRadius: BorderRadius.circular(20),
+                        gradient: LinearGradient(
+                          colors: [color.withOpacity(0.9), color.withOpacity(0.7)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
                           ),
                         ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              quiz.title,
+                              style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Questions: ${quiz.questions.length}',
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                            const SizedBox(height: 12),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: color,
+                                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => QuizPage(
+                                        quiz: quiz,
+                                        themeColor: color,
+                                        gradientColors: [],
+                                      ),
+                                    ),
+                                  );
+                                },
+                                child: const Text('Start'),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },
@@ -98,7 +144,12 @@ class HomePage extends StatelessWidget {
           ),
           const Padding(
             padding: EdgeInsets.all(8.0),
-            child: Center(child: Text('by BS-YTMLR')),
+            child: Center(
+              child: Text(
+                'by BS-YTMLR',
+                style: TextStyle(color: Colors.grey),
+              ),
+            ),
           ),
         ],
       ),
